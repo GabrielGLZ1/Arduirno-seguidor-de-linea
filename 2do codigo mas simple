@@ -1,0 +1,30 @@
+int Valor = 0;
+int Sensor = 8;
+int LedVerde = 13;
+int LedAmarillo = 12;
+ 
+void setup(){
+	Serial.begin(9600);
+	pinMode(Sensor, INPUT);
+	pinMode(LedVerde, OUTPUT);
+	pinMode(LedAmarillo, OUTPUT);
+}
+ 
+void loop(){
+	Valor = digitalRead(Sensor);
+	Serial.println(Valor);
+	delay(100);
+	if (Valor == 0)
+	{
+		digitalWrite(LedVerde, HIGH);
+		digitalWrite(LedAmarillo, LOW);
+	}
+	else
+	{
+		digitalWrite(LedVerde, LOW);
+		digitalWrite(LedAmarillo, HIGH);
+	}
+}
+
+# para este codigo es mas facil casi todos los componentes los tenemos solo faltara hacer la coneccion del sensor y listo 
+#https://create.arduino.cc/projecthub/asusanagg/seguidor-de-linea-9e8fa4
